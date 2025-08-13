@@ -1,0 +1,126 @@
+import 'package:flutter/material.dart';
+
+// Tela de informações sobre a Rolinha-do-planalto
+class RolinhaInfoScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Rolinha-do-planalto'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            // Exibindo a imagem da Rolinha-do-planalto
+            Center(
+              child: CircleAvatar(
+                radius: 75,
+                backgroundImage: const NetworkImage(
+                    'https://www.gstatic.com/flutter-onestack-prototype/genui/example_1.jpg'), // Placeholder URL
+              ),
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              "Rolinha-do-planalto",
+              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 16),
+            const Text(
+              "A Rolinha-do-planalto (Columbina picui) é uma espécie de ave da família Columbidae, "
+              "nativa do Brasil. Ela é encontrada principalmente nas regiões do Cerrado, nos estados de Goiás, "
+              "Minas Gerais, São Paulo, entre outros.",
+              style: TextStyle(fontSize: 18),
+            ),
+            const SizedBox(height: 16),
+            const Text(
+              "Essas aves têm uma coloração discreta, com tons de marrom e cinza, o que as torna um pouco mais difíceis de observar no seu habitat natural. "
+              "Sua alimentação é composta principalmente de sementes e pequenos frutos.",
+              style: TextStyle(fontSize: 18),
+            ),
+            const SizedBox(height: 40),
+            Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/informacoes_adicionais');
+                },
+                child: const Text('Proxima Página'),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// Tela com uma coruja
+class CorujaScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Coruja-Buraqueira'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            // Exibindo a imagem da coruja
+            Center(
+              child: CircleAvatar(
+                radius: 75,
+                backgroundImage: const NetworkImage(
+                    'https://agron.com.br/wp-content/uploads/2025/05/Como-a-coruja-buraqueira-vive-em-grupo-2.webp'), // Placeholder URL
+              ),
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              "Coruja-Buraqueira",
+              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 16),
+            const Text(
+              "A coruja é uma ave de rapina noturna que pertence à família Strigidae. Conhecidas por sua habilidade de caçar à noite, "
+              "as corujas possuem uma visão excepcionalmente aguçada, além de uma audição muito apurada, o que as torna caçadoras altamente eficientes.",
+              style: TextStyle(fontSize: 18),
+            ),
+            const SizedBox(height: 16),
+            const Text(
+              "As corujas são também símbolos de sabedoria em muitas culturas. Sua capacidade de girar a cabeça em até 270 graus e sua habilidade de voar silenciosamente são algumas das características que as tornam fascinantes.",
+              style: TextStyle(fontSize: 18),
+            ),
+            const SizedBox(height: 40),
+            Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context); 
+                },
+                child: const Text('Página Anterior'),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+void main() {
+  runApp(
+    MaterialApp(
+      debugShowCheckedModeBanner: false, 
+      title: 'Rolinha-do-planalto App',
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: RolinhaInfoScreen(), 
+      routes: <String, WidgetBuilder>{
+        '/informacoes_adicionais': (BuildContext context) => CorujaScreen(),
+      },
+    ),
+  );
+}

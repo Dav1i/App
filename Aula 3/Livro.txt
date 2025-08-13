@@ -1,0 +1,135 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Aplicativo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      debugShowCheckedModeBanner: false, // Remove the debug banner
+      initialRoute: '/',
+      routes: {
+        '/': (BuildContext context) => const HomeScreen(),
+        '/filmes': (BuildContext context) => const FilmesScreen(),
+        '/livros': (BuildContext context) => const LivrosScreen(),
+      },
+    );
+  }
+}
+
+// Tela Inicial (Home)
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Aplicativo'),
+      ),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const CircleAvatar(
+                radius: 75,
+                backgroundImage: NetworkImage('https://agron.com.br/wp-content/uploads/2025/05/Como-a-coruja-buraqueira-vive-em-grupo-2.webp'),
+              ),
+              const SizedBox(height: 20),
+              const Text(
+                'Usuario',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              const Text(
+                'Idade: 20 anos',
+                style: TextStyle(fontSize: 18),
+              ),
+              const SizedBox(height: 30),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/filmes');
+                },
+                child: const Text('Filmes'),
+              ),
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/livros');
+                },
+                child: const Text('Livros'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// Tela de Filmes
+class FilmesScreen extends StatelessWidget {
+  final List<String> filmes = const <String>[
+    'Inception',
+    'The Matrix',
+    'Interstellar',
+    'The Shawshank Redemption',
+    'The Dark Knight'
+  ];
+
+  const FilmesScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Meus Filmes Favoritos'),
+      ),
+      body: ListView.builder(
+        itemCount: filmes.length,
+        itemBuilder: (BuildContext context, int index) {
+          return ListTile(
+            title: Text(filmes[index]),
+          );
+        },
+      ),
+    );
+  }
+}
+
+// Tela de Livros
+class LivrosScreen extends StatelessWidget {
+  final List<String> livros = const <String>[
+    '1984 - George Orwell',
+    'O Senhor dos Anéis - J.R.R. Tolkien',
+    'O Grande Gatsby - F. Scott Fitzgerald'
+  ];
+
+  const LivrosScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Meus Livros Favoritos'),
+      ),
+      body: ListView.builder(
+        itemCount: livros.length,
+        itemBuilder: (BuildContext context, int index) {
+          return ListTile(
+            title: Text(livros[index]),
+          );
+        },
+      ),
+    );
+  }
+}
