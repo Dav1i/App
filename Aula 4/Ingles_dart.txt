@@ -44,19 +44,19 @@ class _FlashcardHomePageState extends State<FlashcardHomePage> {
     Flashcard(
       tempo: 'Passado',
       frase: 'She **walked** to school yesterday.',
-      imagemUrl: 'https://cdn.pixabay.com/photo/2016/11/29/03/53/walking-1867693_1280.jpg',
+      imagemUrl: 'https://miro.medium.com/v2/resize:fit:1400/0*Q5CalryyrKL8UXak',
       icone: Icons.history,
     ),
     Flashcard(
       tempo: 'Presente',
       frase: 'He **runs** every morning.',
-      imagemUrl: 'https://cdn.pixabay.com/photo/2016/11/29/05/08/adult-1867483_1280.jpg',
+      imagemUrl: 'https://post.healthline.com/wp-content/uploads/2020/01/Runner-training-on-running-track-1296x728-header-1296x728.jpg',
       icone: Icons.wb_sunny,
     ),
     Flashcard(
       tempo: 'Futuro',
       frase: 'They **will travel** next month.',
-      imagemUrl: 'https://cdn.pixabay.com/photo/2017/03/28/12/10/airplane-2182160_1280.jpg',
+      imagemUrl: 'https://res.cloudinary.com/worldpackers/image/upload/c_fill,f_auto,q_auto,w_1024/v1/guides/article_cover/w5tyj7axkmo24e6c0txq?_a=BACADKGT',
       icone: Icons.event,
     ),
   ];
@@ -143,4 +143,5 @@ class _FlashcardHomePageState extends State<FlashcardHomePage> {
       ),
     );
   }
+
 }
