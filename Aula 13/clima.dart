@@ -11,10 +11,9 @@ class Clima {
       required this.umidade,
       required this.velocidadeVento});
 
-  // Método para buscar dados climáticos
   static Future<Clima> obterClima(double latitude, double longitude) async {
     const apiKey =
-        'SUA_API_KEY_AQUI'; // Substitua pela sua chave da API do OpenWeatherMap
+        'SUA_API_KEY_AQUI'; 
     final url =
         'https://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey&units=metric&lang=pt_br';
 
@@ -36,3 +35,4 @@ class Clima {
     }
   }
 }
+
