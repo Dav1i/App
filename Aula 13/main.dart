@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'localizacao.dart'; // Importe sua classe Localizacao
-import 'clima.dart'; // Importe sua classe Clima
+import 'localizacao.dart'; 
+import 'clima.dart'; 
 
 void main() {
   runApp(const MainApp());
@@ -21,7 +21,6 @@ class _MainAppState extends State<MainApp> {
   double? velocidadeVento;
   bool carregando = true;
 
-  // Método para pegar a localização e o clima
   Future<void> obterDados() async {
     Localizacao localizacao = Localizacao();
     await localizacao.pegaLocalizacaoAtual();
@@ -72,3 +71,4 @@ class _MainAppState extends State<MainApp> {
     );
   }
 }
+
