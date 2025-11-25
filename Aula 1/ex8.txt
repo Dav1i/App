@@ -1,0 +1,9 @@
+import 'dart:math';
+
+void main() {
+  const double radius = 5.75; 
+  final double area = pi * pow(radius, 2); 
+
+  print('raio: ${radius} cm:');
+  print('área: ${area.toStringAsFixed(2)} cm²'); 
+}

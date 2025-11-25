@@ -1,0 +1,5 @@
+void main() {
+  final int atual = DateTime.now().month;
+
+  print('Mês atual: $atual');
+}

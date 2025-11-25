@@ -1,0 +1,29 @@
+void main() {
+  final DateTime now = DateTime.now();
+  final int currentYear = now.year;
+  final int currentMonth = now.month;
+  final int currentDay = now.day;
+
+  final DateTime firstDayOfMonth = DateTime(currentYear, currentMonth, 1);
+
+  final int startGridOffset = firstDayOfMonth.weekday % 7;
+ 
+  print('| D | S | T | Q | Q | S | S |');
+  print('-----------------------------'); 
+
+  String currentLine = '';
+
+  for (int i = 0; i < startGridOffset; i++) {
+    currentLine += '|   ';
+  }
+
+  for (int day = 1; day <= currentDay; day++) {
+    
+    currentLine += '| ${day.toString().padLeft(2, ' ')}';
+
+    if ((startGridOffset + day) % 7 == 0 || day == currentDay) {
+      print('$currentLine |');
+      currentLine = '';
+    }
+  }
+}
